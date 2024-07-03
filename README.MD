@@ -88,3 +88,9 @@ config("spark.hadoop.fs.s3a.endpoint", config['aws_endpoint']) \
     .config("spark.hadoop.fs.s3a.connection.timeout", 100000) \
     .getOrCreate()
 ```
+
+### Spark-Submit
+
+```bash
+spark-submit --master local[*] --jars /opt/spark/jars/hadoop-aws-3.2.2.jar,/opt/spark/jars/aws-java-sdk-bundle-1.11.901.jar job_spark.py
+```
