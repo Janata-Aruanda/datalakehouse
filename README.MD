@@ -25,14 +25,14 @@ No diretório `spark/imagem` que contém um Dockerfile e um arquivo requirements
 
 ```bash
 sudo docker build . -t sparkhome
-
+```
 ### Passo 03: Subir os Serviços no Docker
 
 Para iniciar os serviços no Docker, utilize o seguinte comando:
 
 ```bash
 sudo docker compose up -d
-
+```
 
 Após realizar os passos acima, o ambiente estará configurado.
 
