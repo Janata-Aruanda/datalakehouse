@@ -37,6 +37,7 @@ df = spark.read.parquet("s3a://raw/testev2.parquet")
 
 # Exibir os primeiros registros do DataFrame
 df.show()
+df.printSchema()
 
 # Encerrar SparkSession
 spark.stop()
