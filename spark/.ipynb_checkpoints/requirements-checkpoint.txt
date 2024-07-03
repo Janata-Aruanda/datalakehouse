@@ -1,0 +1,10 @@
+pyspark==3.2.0
+jupyterlab
+pandas
+pyyaml
+delta-spark
+boto3
+numpy
+scrapy
+beautifulsoup4
+openpyxl

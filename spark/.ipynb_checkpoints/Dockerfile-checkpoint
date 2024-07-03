@@ -1,0 +1,15 @@
+FROM datamechanics/spark:3.2.1-hadoop-3.3.1-java-11-scala-2.12-python-3.8-dm18
+
+USER janata
+
+WORKDIR /opt/spark
+
+# Copia o arquivo requirements.txt para dentro do contêiner
+COPY requirements.txt /opt/spark/requirements.txt
+
+# Instala as dependências Python
+RUN pip3 install --upgrade pip && \
+    pip3 install -r requirements.txt
+
+# Configura o comando padrão para executar o Jupyter Lab
+CMD ["jupyter-lab", "--allow-root", "--no-browser", "--ip=0.0.0.0"]

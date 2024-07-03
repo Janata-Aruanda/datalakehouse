@@ -1,0 +1,5 @@
+{
+    "aws_endpoint": "http://minio:9000",
+    "aws_access_key_id": "minio_access_key",
+    "aws_secret_access_key": "minio_secret_key"
+}
