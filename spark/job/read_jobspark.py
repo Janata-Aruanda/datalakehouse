@@ -32,18 +32,11 @@ spark = SparkSession.builder \
     .config("spark.hadoop.fs.s3a.connection.timeout", 100000) \
     .getOrCreate()
 
-# Exemplo de criação de DataFrame
-data = [("Alice", 28), ("Bob", 25), ("Charlie", 30)]
-columns = ["Name", "Age"]
-df = spark.createDataFrame(data, columns)
+# Exemplo de leitura de DataFrame a partir de arquivo PARQUET no S3
+df = spark.read.parquet("s3a://raw/testev2.parquet")
 
-#df.printSchema()
-df_coalesced = df.coalesce(1)
-# Salvar DataFrame no MinIO com compressão Snappy
-path_parquet = "s3a://raw/testev2.parquet"
-
-df.write.mode("overwrite") \
-   .parquet(path_parquet)
+# Exibir os primeiros registros do DataFrame
+df.show()
 
 # Encerrar SparkSession
 spark.stop()

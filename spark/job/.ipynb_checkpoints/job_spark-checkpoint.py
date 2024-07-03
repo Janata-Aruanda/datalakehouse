@@ -37,11 +37,13 @@ data = [("Alice", 28), ("Bob", 25), ("Charlie", 30)]
 columns = ["Name", "Age"]
 df = spark.createDataFrame(data, columns)
 
-# Adicionar coluna "Timestamp" com timestamp atual
-df.show()
-
+#df.printSchema()
+df_coalesced = df.coalesce(1)
 # Salvar DataFrame no MinIO com compressão Snappy
-df.write.mode("overwrite").option("header", "true").csv("s3a://raw/teste_sp_v1.csv")
+path_parquet = "s3a://raw/testev2.parquet"
+
+df.write.mode("overwrite") \
+   .parquet(path_parquet)
 
 # Encerrar SparkSession
 spark.stop()
